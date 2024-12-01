@@ -1,0 +1,182 @@
+<html>
+    <head>
+        <title>Font Picker</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" >
+
+        <style>
+            @font-face {
+                font-family: 'Comic Sans MS';
+                src: url('fonts/Comic Sans MS.ttf');
+            }
+
+            @font-face {
+                font-family: 'Monocraft';
+                src: url(fonts/Monocraft.ttf);
+            }
+
+            @font-face {
+                font-family: 'Gotham RND';
+                src: url(fonts/Gotham-Rounded-Medium.ttf);
+            }
+
+            @font-face {
+                font-family: 'Ubuntu';
+                src: url(fonts/Ubuntu-R.ttf);
+            }
+
+            @font-face {
+                font-family: 'Arial';
+                src: url(fonts/Arial.ttf);
+            }
+
+            @font-face {
+                font-family: 'Acorn.ttf';
+                src: url(fonts/60-New-Fonts-Pack/acorn.ttf);
+            }
+            
+
+            * {
+                box-sizing: border-box;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            body {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                
+                height: 100%;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+
+                
+            }
+
+            select {
+            width: 400px;
+            height: 70px;
+            font-size: 1rem;
+            margin-right: 10px;
+            }
+
+            #downloader {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 70px;
+                height: 70px;
+            }
+
+            .controls {
+            display: flex;
+            align-items: center;
+            margin-top: 2%;
+            
+            }
+
+            .font_preview {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+
+
+                position: absolute;
+                left: 3%;
+                top: 20%;
+            }       
+
+            h1, h2, h3, h4, h5, h6, p {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            h1 {
+                font-size: 4rem;
+            }
+
+            h2 {
+                font-size: 3rem;
+            }
+
+            h3 {
+                font-size: 2rem;
+            }
+
+            h4 {
+                font-size: 1.5rem;
+            }
+
+            h5 {
+                font-size: 1.2rem;
+            }
+
+            h6 {
+                font-size: 1rem;
+            }
+
+            
+        </style>
+
+
+    </head>
+
+    <body>
+        <div class="controls">
+            <select id="fontSelector">
+                <option value="Arial" style="font-family: 'Arial';">Arial</option>
+                <option value="Comic Sans MS" style="font-family: 'Comic Sans MS';">Comic Sans MS</option>
+                <option value="Monocraft" style="font-family: 'Monocraft';">Monocraft</option>
+                <option value="Gotham RND" style="font-family: 'Gotham RND';">Gotham RND</option>
+                <option value="Ubuntu" style="font-family: 'Ubuntu';">Ubuntu</option>
+                <option value="Acorn" style="font-family: 'Acorn';">Acorn</option>  
+            </select>
+
+            <button id="downloader" type="button"><img src="img/download.png" alt="download" width="100%" height="100%"></button>
+        </div>
+        <div class="font_preview">
+            <h1>This text is a sample</h1>
+            <h2>This text is a sample</h2>
+            <h3>This text is a sample</h3>
+            <h4>This text is a sample</h4>
+            <h5>This text is a sample</h5>
+            <h6>This text is a sample</h6>
+            <p>abcdefghijklmonpqrstuvwxyz</p>
+            <p>ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+            <p>1 2 3 4 5 6 7 8 9 0</p>
+            <p>- = _ @ <> () [] {} * $ % & ? ! - + ~ # \|/</p>
+        </div>
+
+        <script>
+            let preview = document.querySelector('.font_preview');
+            let fonts = document.querySelector('#fontSelector');
+            let download = document.querySelector('#downloader');
+
+            fonts.addEventListener('change', function() {
+                document.querySelectorAll('p').forEach(function(element) {
+                    element.style.fontFamily = fonts.value;
+                });
+                document.querySelectorAll('h1, h2, h3, h4, h5, h6').forEach(function(element) {
+                    element.style.fontFamily = fonts.value;
+                });
+            });
+
+            document.querySelectorAll('#fontSelector option').forEach(function(option) {
+            option.style.fontFamily = option.value;
+            });
+
+            download.addEventListener('click', function() {
+                let link = document.createElement('a');
+                link.download = fonts.value + '.ttf';
+                link.href = 'fonts/' + fonts.value + '.ttf';
+                link.click();
+            });
+
+        </script>
+    </body>
+
+    
+</html>
