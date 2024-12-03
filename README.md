@@ -1,6 +1,9 @@
 # Font Picker
 
 Font Picker is a simple JavaScript project that allows users to preview and select different fonts for their web projects.
+Fonts are picked in base of how good they are to code/design websites.
+
+PD: There are a few fonts: Monocraft, comic sans, etc. That are there just for fun
 
 ## Features
 
@@ -38,6 +41,11 @@ You can check it out at: [itch.io](https://oriol-fibla.itch.io/font-picker)
 
 Contributions are welcome! Please open an issue or submit a pull request.
 
+
 ## Contact
 
 For any questions or suggestions, please contact [oriolfibla@iesmontsia.org](mailto:oriolfibla@iesmontsia.org).
+
+## Special mention
+
+Thanks a lot to Shibam Roy for his ideas and help
